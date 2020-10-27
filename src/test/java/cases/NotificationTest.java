@@ -33,6 +33,7 @@ public class NotificationTest extends BaseTest {
     public void newNotificationIsGenerated() {
 
         notificationPage.clickOnCloseButton();
+        notificationPage.clickToGenerateNotification();
         boolean isVisibleOnClick = notificationPage.notificationExists();
         Assert.assertTrue(isVisibleOnClick);
 

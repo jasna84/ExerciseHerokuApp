@@ -29,9 +29,10 @@ public class MultipleWindowsTest extends BaseTest {
 
         String pageText = multiWindowsPage.getNewWindowText();
         String currentURL = multiWindowsPage.getNewWindowURL();
+        String expectedURL = multiWindowsPage.newWindowURL;
 
         Assert.assertEquals("New Window",pageText);
-        Assert.assertEquals(multiWindowsPage.newWindowURL,currentURL);
+        Assert.assertEquals(currentURL, expectedURL);
 
     }
 

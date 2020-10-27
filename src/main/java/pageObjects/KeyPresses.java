@@ -1,17 +1,10 @@
 package main.java.pageObjects;
 
 import main.java.config.BasePage;
-import main.java.config.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 
 public class KeyPresses extends BasePage {
-
-    public String keyPressesURL = "http://the-internet.herokuapp.com/javascript_alerts";
-
-    public void navigateToKeyPressesPageDirectly() {
-        Driver.getInstance().getDriver().navigate().to(keyPressesURL);
-    }
 
     By result = By.id("result");
 

@@ -1,7 +1,6 @@
 package main.java.pageObjects;
 
 import main.java.config.BasePage;
-import main.java.config.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -10,22 +9,10 @@ import java.util.List;
 
 public class Hovers extends BasePage {
 
-    public String notificationMessagesURL = "http://the-internet.herokuapp.com/notification_message_rendered";
-
-    public void navigateToNotificationPageDirectly() {
-        Driver.getInstance().getDriver().navigate().to(notificationMessagesURL);
-    }
-
-    public String user2URL = "http://the-internet.herokuapp.com/users/2";
-
     By images = By.className("figure");
     By secondImage = By.xpath("//*[@id='content']/div/div[2]");
 
-    public List<WebElement> getAllImages() {
-        return getListElements(images);
-    }
-
-    public void hoverOverProfile() { hoverOverElement(secondImage);}
+    public String user2URL = "http://the-internet.herokuapp.com/users/2";
 
     public String getProfileURL() {
         return getUrl();
@@ -33,7 +20,7 @@ public class Hovers extends BasePage {
 
     public List<String> hoverOverElements() {
 
-        List< WebElement > profilePics = getAllImages();
+        List<WebElement> profilePics = getListElements(images);
         List<String> captionsText = new ArrayList<>();
 
         for (WebElement pic : profilePics) {
@@ -54,9 +41,9 @@ public class Hovers extends BasePage {
     }
 
     public void hoverOverSecondAndClick() {
-        hoverOverProfile();
+
+        hoverOverElement(secondImage);
         By profileLink = By.xpath("//*[@id='content']/div/div[2]/div/a");
         click(profileLink);
-
     }
 }
