@@ -14,6 +14,8 @@ public class BasePage {
 
     public static Integer TIMEOUT_WEBDRIVER_WAIT = 10;
 
+//    public static Logger log = Logger.getLogger(BasePage.class);
+
     public BasePage() {
         PageFactory.initElements(Driver.getInstance().getDriver(), this);
         System.out.println("Page created: " + this.getClass().getName());
@@ -41,10 +43,28 @@ public class BasePage {
         return condition;
     }
 
-    public void click(By by) {
+    public void clickJS(By by) {
+        new WebDriverWait(Driver.getInstance().getDriver(), TIMEOUT_WEBDRIVER_WAIT).until(ExpectedConditions.elementToBeClickable(by));
         WebElement element = Driver.getInstance().getDriver().findElement(by);
         JavascriptExecutor js = (JavascriptExecutor) (Driver.getInstance().getDriver());
         js.executeScript("arguments[0].click();", element);
+    }
+
+    public void clickJS(WebElement element) {
+        new WebDriverWait(Driver.getInstance().getDriver(), TIMEOUT_WEBDRIVER_WAIT).until(ExpectedConditions.elementToBeClickable(element));
+        JavascriptExecutor js = (JavascriptExecutor) (Driver.getInstance().getDriver());
+        js.executeScript("arguments[0].click();", element);
+    }
+
+    public void click(By by) {
+        new WebDriverWait(Driver.getInstance().getDriver(), TIMEOUT_WEBDRIVER_WAIT).until(ExpectedConditions.elementToBeClickable(by));
+        WebElement element = Driver.getInstance().getDriver().findElement(by);
+        element.click();
+    }
+
+    public void click(WebElement element) {
+        new WebDriverWait(Driver.getInstance().getDriver(), TIMEOUT_WEBDRIVER_WAIT).until(ExpectedConditions.elementToBeClickable(element));
+        element.click();
     }
 
     public void sendText(By by, String text) {
