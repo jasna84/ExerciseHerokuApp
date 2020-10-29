@@ -1,6 +1,9 @@
 package main.java.pageObjects;
 
 import main.java.config.BasePage;
+import main.java.config.Driver;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -8,6 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Hovers extends BasePage {
+
+    private static final Logger logger = LogManager.getLogger(Hovers.class.getSimpleName());
 
     By images = By.className("figure");
     By secondImage = By.xpath("//*[@id='content']/div/div[2]");
@@ -36,7 +41,7 @@ public class Hovers extends BasePage {
                 captionsText.add(caption3);
             }
         }
-        System.out.println(captionsText);
+        logger.info("Received captions are " + captionsText);
         return captionsText;
     }
 
@@ -45,5 +50,6 @@ public class Hovers extends BasePage {
         hoverOverElement(secondImage);
         By profileLink = By.xpath("//*[@id='content']/div/div[2]/div/a");
         click(profileLink);
+        logger.info("Profile clicked");
     }
 }

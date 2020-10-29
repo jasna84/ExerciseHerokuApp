@@ -1,0 +1,5 @@
+2020-10-28 16:56:01.098 [main] DEBUG main.java.config.LoggerSetup - We've just greeted the user!
+2020-10-28 16:56:01.103 [main] INFO  main.java.config.LoggerSetup - We've just greeted the user!
+2020-10-28 16:56:01.103 [main] WARN  main.java.config.LoggerSetup - We've just greeted the user!
+2020-10-28 16:56:01.104 [main] ERROR main.java.config.LoggerSetup - We've just greeted the user!
+2020-10-28 16:56:01.104 [main] FATAL main.java.config.LoggerSetup - We've just greeted the user!
