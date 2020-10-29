@@ -6,6 +6,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +16,7 @@ public class BasePage {
 
     public static Integer TIMEOUT_WEBDRIVER_WAIT = 10;
 
-//    public static Logger log = Logger.getLogger(BasePage.class);
+    private static final Logger logger = LogManager.getLogger(BasePage.class.getSimpleName());
 
     public BasePage() {
         PageFactory.initElements(Driver.getInstance().getDriver(), this);
