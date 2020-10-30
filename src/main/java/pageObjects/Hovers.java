@@ -1,7 +1,7 @@
 package main.java.pageObjects;
 
 import main.java.config.BasePage;
-import main.java.config.Driver;
+import main.java.config.DataReader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
@@ -17,11 +17,11 @@ public class Hovers extends BasePage {
     By images = By.className("figure");
     By secondImage = By.xpath("//*[@id='content']/div/div[2]");
 
-    public String user2URL = "http://the-internet.herokuapp.com/users/2";
-
     public String getProfileURL() {
         return getUrl();
     }
+
+    public String getExpectedUrl() { return data.getProperties("user2ProfileUrl");}
 
     public List<String> hoverOverElements() {
 

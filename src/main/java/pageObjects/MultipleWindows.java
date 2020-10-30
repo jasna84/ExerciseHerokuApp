@@ -1,7 +1,6 @@
 package main.java.pageObjects;
 
 import main.java.config.BasePage;
-import main.java.config.Driver;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
@@ -9,8 +8,6 @@ import org.openqa.selenium.By;
 public class MultipleWindows extends BasePage {
 
     private static final Logger logger = LogManager.getLogger(MultipleWindows.class.getSimpleName());
-
-    public String newWindowURL = "http://the-internet.herokuapp.com/windows/new";
 
     By openWindow = By.linkText("Click Here");
     By newWindowTxt = By.cssSelector("h3");
@@ -29,7 +26,9 @@ public class MultipleWindows extends BasePage {
         return getElementText(newWindowTxt);
     }
 
-    public String getNewWindowURL() {
+    public String getCurrentUrl() {
         return getUrl();
     }
+
+    public String getExpectedUrl() { return data.getProperties("newWindowUrl");}
 }

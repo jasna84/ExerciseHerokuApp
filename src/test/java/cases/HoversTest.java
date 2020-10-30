@@ -37,7 +37,7 @@ public class HoversTest extends BaseTest {
 
         hoverPage.hoverOverSecondAndClick();
         String currentUrl = hoverPage.getProfileURL();
-        String expectedURL = hoverPage.user2URL;
+        String expectedURL = hoverPage.getExpectedUrl();
         Assert.assertEquals(currentUrl, expectedURL);
 
     }

@@ -8,21 +8,21 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class BasePage {
-
-    public static Integer TIMEOUT_WEBDRIVER_WAIT = 10;
-
-    private static final Logger logger = LogManager.getLogger(BasePage.class.getSimpleName());
 
     public BasePage() {
         PageFactory.initElements(Driver.getInstance().getDriver(), this);
         System.out.println("Page created: " + this.getClass().getName());
     }
 
+    public static Integer TIMEOUT_WEBDRIVER_WAIT = 10;
+
+    private static final Logger logger = LogManager.getLogger(BasePage.class.getSimpleName());
+
+    public static DataReader data = new DataReader();
 
     public boolean waitForElement(By by, int attempts) {
 

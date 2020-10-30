@@ -5,15 +5,14 @@ import main.java.config.Driver;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
+import org.testng.Assert;
 
 public class HomePage extends BasePage {
 
     private static final Logger logger = LogManager.getLogger(HomePage.class.getSimpleName());
 
-        public String homeURL = "http://the-internet.herokuapp.com/";
-
         public void navigateToHomePage() {
-            Driver.getInstance().getDriver().navigate().to(homeURL);
+            Driver.getInstance().getDriver().navigate().to((data.getProperties("homeUrl")));
             logger.info("Home page navigated");
         }
 
